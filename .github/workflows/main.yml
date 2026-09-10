@@ -13,8 +13,16 @@ jobs:
         uses: actions/setup-node@v6.5.0
         with:
           node-version: 24.x
+      
       - name: Install Dependencies
         run: npm install
+      
       - name: Build react application
         run: npm run build
+
+      - name: Upload build to artifacts
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: reactjs-build
+          path: out/
     
